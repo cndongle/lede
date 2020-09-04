@@ -139,6 +139,7 @@ jobs:
           # CONFIG_TARGET_ipq806x_DEVICE_tplink_c2600 is not set
           # CONFIG_TARGET_ipq806x_DEVICE_tplink_vr2600v is not set
           # CONFIG_TARGET_ipq806x_DEVICE_zyxel_nbg6817 is not set
+          CONFIG_HAS_SUBTARGETS=y
           CONFIG_HAS_DEVICES=y
           CONFIG_TARGET_BOARD="ipq806x"
           CONFIG_TARGET_SUBTARGET="generic"
