@@ -80,7 +80,7 @@ jobs:
           #
           CONFIG_MODULES=y
           CONFIG_HAVE_DOT_CONFIG=y
-          # CONFIG_TARGET_ipq806x=y
+         CONFIG_TARGET_ipq806x=y
           CONFIG_TARGET_ipq806x_DEVICE_ruijie_rg-mtfi-m520=y
           CONFIG_HAS_SUBTARGETS=y
           CONFIG_HAS_DEVICES=y
@@ -6464,23 +6464,14 @@ jobs:
           cp -rf $(find ./bin/packages/ -type f -name "*.ipk") ./artifact/package/
           cp -rf $(find ./bin/targets/ -type f -name "*.buildinfo" -o -name "*.manifest") ./artifact/buildinfo/
 
-      - name: Deliver buildinfo
-        uses: actions/upload-artifact@v2
-        with:
-          name: OpenWrt_buildinfo
-          path: ./artifact/buildinfo/
-
-      - name: Deliver package
-        uses: actions/upload-artifact@v2
-        with:
-          name: OpenWrt_package
-          path: ./artifact/package/
-
       - name: Deliver firmware
         uses: actions/upload-artifact@v2
         with:
           name: OpenWrt_firmware
-          path: ./bin/targets/
+          path: |
+            ./bin/targets/*/*/sha256sums
+            ./bin/targets/*/*/*.buildinfo
+            ./bin/targets/*/*/*mtfi-m520*sysupgrade.bin
 
       - name: Upload release asset
         if: github.event == 'release'
