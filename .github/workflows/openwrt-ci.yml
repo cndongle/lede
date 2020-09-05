@@ -80,7 +80,7 @@ jobs:
           #
           CONFIG_MODULES=y
           CONFIG_HAVE_DOT_CONFIG=y
-         CONFIG_TARGET_ipq806x=y
+          CONFIG_TARGET_ipq806x=y
           CONFIG_TARGET_ipq806x_DEVICE_ruijie_rg-mtfi-m520=y
           CONFIG_HAS_SUBTARGETS=y
           CONFIG_HAS_DEVICES=y
